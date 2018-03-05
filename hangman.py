@@ -1,7 +1,7 @@
 import random
 import os
 import web3
-from web3 import Web3, HTTPProvider, TestRPCProvider
+from web3 import Web3, HTTPProvider
 from solc import compile_source
 from web3.contract import ConciseContract
 import time
@@ -138,11 +138,14 @@ def checkWrongAnswer(missedLetters):
     return False
             
 def main():
+    print('Loading...')
+
     contract_source_code = open("hangmanContract.sol", 'r').read()
 
     compiled_sol = compile_source(contract_source_code)
     contract_interface = compiled_sol['<stdin>:Hangman']
-    w3 = Web3(TestRPCProvider())
+    http_provider = HTTPProvider('http://localhost:8545')
+    w3 = Web3(http_provider)
 
     contract = w3.eth.contract(abi=contract_interface['abi'], bytecode=contract_interface['bin'])
 

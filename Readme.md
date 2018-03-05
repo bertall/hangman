@@ -16,16 +16,24 @@ $ sudo apt-get install solc
 ```sh
 $ pip install py-solc
 ```
-- eth-testrpc
+- Ganache CLI
 ```sh
-$ pip install eth-testrpc
+$ npm install -g ganache-cli
 ```
 - Web3.py
 ```sh
 $ pip install web3
 ```
+
 # Как запускать
-- python hangman.py
+- В отдельном окне терминала запустить сервер ganache-cli
+```sh
+$ ganache-cli --accounts=1
+```
+- В новом окне терминала
+```sh
+$ python hangman.py
+```
 
 # Как играть
 - Запустить
